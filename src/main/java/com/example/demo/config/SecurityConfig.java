@@ -7,6 +7,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
 @Configuration
 @EnableWebSecurity(debug = true)
@@ -18,12 +19,8 @@ public class SecurityConfig {
             .csrf(Customizer.withDefaults()) // CSRF protection configuration
             .authorizeHttpRequests(authorize -> authorize
                     .requestMatchers(
-                            PathRequest.toStaticResources().atCommonLocations()
-                            // NOTE:
-                            // We are *not* whitelisting "/error" here on purpose.
-                            // If you also permit "/error/**", you won't see the /error?continue behavior
-                            // that we debug in this chapter.
-//                          ,PathPatternRequestMatcher.withDefaults().matcher("/error/**")
+                        PathRequest.toStaticResources().atCommonLocations(),
+                        PathPatternRequestMatcher.withDefaults().matcher("/error/**")
                     ).permitAll()
                     .requestMatchers("/auth/login").permitAll()
                     .anyRequest().authenticated()
