@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragment/template :: head}">&nbsp;</head>
+<body>
+
+<div th:replace="~{fragment/template :: navigation}">&nbsp;</div>
+
+<main>
+    <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="row">
+            <div class="col col-md-12 col-lg-8">
+
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h1 class="h3 mb-2">Welcome to the home page</h1>
+                        <p class="text-muted mb-3">
+                            You’ve successfully logged in using Spring Security’s custom
+                            <code>.loginPage()</code> configuration.
+                        </p>
+
+                        <p class="mb-2">
+                            This page is a simple “post-login” landing page mapped to <code>/home</code>.
+                            We’ll reuse it in later chapters when we explore
+                            <code>.defaultSuccessUrl()</code> and other login behaviors.
+                        </p>
+
+                        <hr/>
+
+                        <h2 class="h5 mb-2">Try this next:</h2>
+                        <ul class="mb-3">
+                            <li>Refresh the page and notice you stay logged in.</li>
+                            <li>Access a protected URL directly and see how Spring remembers it.</li>
+                            <li>Log out and log back in to see the redirect flow again.</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer text-center" th:replace="~{fragment/template :: footer}"></footer>
+
+</body>
+</html>
