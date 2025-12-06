@@ -66,7 +66,6 @@ public class DefaultSuccessUrlTrueTest {
                         .requestMatchers(
                             PathRequest.toStaticResources().atCommonLocations(),
                             PathPatternRequestMatcher.withDefaults().matcher("/auth/login"),
-                            PathPatternRequestMatcher.withDefaults().matcher("/auth/login/**"),
                             PathPatternRequestMatcher.withDefaults().matcher("/error/**")
                         ).permitAll()
                     .anyRequest().authenticated()
